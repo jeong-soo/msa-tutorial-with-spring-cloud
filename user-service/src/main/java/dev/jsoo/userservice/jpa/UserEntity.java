@@ -13,7 +13,7 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long seq;
 
     @Column(nullable = false, length = 50)
     private String email;
@@ -22,8 +22,8 @@ public class UserEntity {
     private String name;
 
     @Column(nullable = false, unique = true, length = 50)
-    private String userId;
+    private String id;
 
     @Column(nullable = false, unique = true)
-    private String encryptedPwd;
+    private String pwd;
 }
