@@ -4,5 +4,5 @@ import dev.jsoo.userservice.dto.UserDto;
 import org.springframework.stereotype.Service;
 
 public interface UserService {
-    public UserDto createUser(UserDto userDto);
+    UserDto createUser(UserDto userDto);
 }
