@@ -1,6 +1,7 @@
 package dev.jsoo.userservice.dto;
 
 import com.sun.istack.NotNull;
+import dev.jsoo.userservice.vo.ResponseOrder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,6 +9,7 @@ import lombok.ToString;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,4 +21,6 @@ public class UserDto {
     private String id;
     private Date createAt;
     private String encryptedPwd;
+
+    private List<ResponseOrder> orders;
 }

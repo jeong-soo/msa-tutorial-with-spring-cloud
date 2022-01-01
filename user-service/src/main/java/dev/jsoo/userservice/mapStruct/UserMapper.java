@@ -3,6 +3,7 @@ package dev.jsoo.userservice.mapStruct;
 import dev.jsoo.userservice.dto.UserDto;
 import dev.jsoo.userservice.jpa.UserEntity;
 import dev.jsoo.userservice.vo.RequestUser;
+import dev.jsoo.userservice.vo.ResponseUser;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -14,5 +15,12 @@ public interface UserMapper {
     @Mapping(source = "encryptedPwd", target = "pwd")
     UserEntity dtoToEntity(UserDto dto);
 
+    @Mapping(source = "pwd", target = "encryptedPwd")
+    UserDto entityToDto(UserEntity entity);
+
+    Iterable<UserDto> entityToDto(Iterable<UserEntity> entities);
+
     UserDto requestToDto(RequestUser request);
+
+    Iterable<ResponseUser> dtoToResponse(Iterable<UserDto> dtos);
 }
