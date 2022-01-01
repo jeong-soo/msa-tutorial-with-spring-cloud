@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserDto getUserByUserId(String userId) {
+    public UserDto getUserById(String userId) {
         UserDto userDto = UserMapper.INSTANCE.entityToDto(userRepository.findById(userId));
         List<ResponseOrder> orders = new ArrayList<>();
         userDto.setOrders(orders);
