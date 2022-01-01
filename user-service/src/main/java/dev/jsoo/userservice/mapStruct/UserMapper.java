@@ -22,5 +22,7 @@ public interface UserMapper {
 
     UserDto requestToDto(RequestUser request);
 
+    ResponseUser dtoToResponse(UserDto dto);
+
     Iterable<ResponseUser> dtoToResponse(Iterable<UserDto> dtos);
 }
