@@ -7,6 +7,7 @@ import dev.jsoo.userservice.mapStruct.UserMapper;
 import dev.jsoo.userservice.vo.ResponseOrder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,18 +18,20 @@ import java.util.UUID;
 @Service
 public class UserServiceImpl implements UserService{
     private UserRepository userRepository;
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public UserDto createUser(UserDto userDto) {
         userDto.setId(UUID.randomUUID().toString());
         UserEntity userEntity = UserMapper.INSTANCE.dtoToEntity(userDto);
-        userEntity.setPwd("mock password");
-        log.info("USER SERVICE CREATE USER {}", userEntity.toString());
+        userEntity.setPwd(passwordEncoder.encode(userDto.getPwd()));
+
         userRepository.save(userEntity);
 
         return userDto;
