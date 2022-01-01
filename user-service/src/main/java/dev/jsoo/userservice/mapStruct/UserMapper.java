@@ -12,10 +12,10 @@ import org.mapstruct.factory.Mappers;
 public interface UserMapper {
     UserMapper INSTANCE = Mappers.getMapper( UserMapper.class );
 
-    @Mapping(source = "encryptedPwd", target = "pwd")
+    @Mapping(source = "encryptedPassword", target = "password")
     UserEntity dtoToEntity(UserDto dto);
 
-    @Mapping(source = "pwd", target = "encryptedPwd")
+    @Mapping(source = "password", target = "encryptedPassword")
     UserDto entityToDto(UserEntity entity);
 
     Iterable<UserDto> entityToDto(Iterable<UserEntity> entities);

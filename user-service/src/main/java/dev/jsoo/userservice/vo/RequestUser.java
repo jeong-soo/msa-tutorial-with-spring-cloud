@@ -23,5 +23,5 @@ public class RequestUser {
 
     @NotNull
     @Size(min = 2)
-    private String pwd;
+    private String password;
 }

@@ -17,7 +17,7 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long seq;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, unique = true, length = 50)
     private String email;
 
     @Column(nullable = false, length = 50)
@@ -26,6 +26,6 @@ public class UserEntity {
     @Column(nullable = false, unique = true, length = 50)
     private String id;
 
-    @Column(nullable = false, unique = true)
-    private String pwd;
+    @Column(nullable = false)
+    private String password;
 }

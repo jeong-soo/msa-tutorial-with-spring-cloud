@@ -17,10 +17,10 @@ import java.util.List;
 public class UserDto {
     private String email;
     private String name;
-    private String pwd;
+    private String password;
     private String id;
     private Date createAt;
-    private String encryptedPwd;
+    private String encryptedPassword;
 
     private List<ResponseOrder> orders;
 }

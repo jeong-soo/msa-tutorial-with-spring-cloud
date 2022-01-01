@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService{
     public UserDto createUser(UserDto userDto) {
         userDto.setId(UUID.randomUUID().toString());
         UserEntity userEntity = UserMapper.INSTANCE.dtoToEntity(userDto);
-        userEntity.setPwd(passwordEncoder.encode(userDto.getPwd()));
+        userEntity.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
         userRepository.save(userEntity);
 
