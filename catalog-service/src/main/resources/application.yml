@@ -20,6 +20,7 @@ spring:
     open-in-view: false
     show-sql: true
     generate-ddl: true
+    defer-datasource-initialization: true
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
@@ -33,3 +34,6 @@ management:
     shutdown:
       enabled: true
       sensitive: false
+logging:
+  level:
+    dev.jsoo.catalogservice: DEBUG

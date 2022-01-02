@@ -1,7 +1,5 @@
 package dev.jsoo.userservice.controller;
 
-import dev.jsoo.userservice.dto.UserDto;
-import dev.jsoo.userservice.jpa.UserEntity;
 import dev.jsoo.userservice.mapStruct.UserMapper;
 import dev.jsoo.userservice.service.UserService;
 import dev.jsoo.userservice.vo.Greeting;
@@ -13,8 +11,6 @@ import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Slf4j
 @RestController

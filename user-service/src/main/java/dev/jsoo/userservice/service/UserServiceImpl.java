@@ -1,8 +1,8 @@
 package dev.jsoo.userservice.service;
 
 import dev.jsoo.userservice.dto.UserDto;
-import dev.jsoo.userservice.jpa.UserEntity;
-import dev.jsoo.userservice.jpa.UserRepository;
+import dev.jsoo.userservice.entity.UserEntity;
+import dev.jsoo.userservice.repository.UserRepository;
 import dev.jsoo.userservice.mapStruct.UserMapper;
 import dev.jsoo.userservice.vo.ResponseOrder;
 import lombok.extern.slf4j.Slf4j;
