@@ -44,9 +44,10 @@ public class UserController {
 
     @PostMapping("/user")
     public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) {
-        UserDto userDto = UserMapper.INSTANCE.requestToDto(user);
-        log.info("userDto : {}", userDto.toString());
-        return ResponseEntity.status(HttpStatus.CREATED).body(UserMapper.INSTANCE.dtoToResponse(userService.createUser(userDto)));
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+                UserMapper.INSTANCE.dtoToResponse(
+                        userService.createUser(
+                                UserMapper.INSTANCE.requestToDto(user))));
     }
 
     @GetMapping("/users/{id}")
