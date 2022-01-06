@@ -29,9 +29,9 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/catalog-service/(?<segment>.*), /$\{segment}
         - id: order-service
-            uri: lb://ORDER-SERVICE
-            predicates:
-              - Path=/order-service/**
-            filters:
-              - RemoveRequestHeader=Cookie
-              - RewritePath=/order-service/(?<segment>.*), /$\{segment}
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order-service/**
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/order-service/(?<segment>.*), /$\{segment}
