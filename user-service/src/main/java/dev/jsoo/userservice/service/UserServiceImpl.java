@@ -7,6 +7,9 @@ import dev.jsoo.userservice.mapStruct.UserMapper;
 import dev.jsoo.userservice.vo.ResponseOrder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -48,5 +51,15 @@ public class UserServiceImpl implements UserService{
     @Override
     public Iterable<UserDto> getUserByAll() {
         return UserMapper.INSTANCE.entityToDto(userRepository.findAll());
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserEntity userEntity = userRepository.findByEmail(username);
+        if(userEntity == null) throw new UsernameNotFoundException(username);
+
+        return new User(userEntity.getEmail(), userEntity.getPassword(),
+                true, true, true, true,
+                new ArrayList<>());
     }
 }

@@ -16,6 +16,11 @@ spring:
     password:
   jpa:
     open-in-view: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    generate-ddl: true
+
 eureka:
   instance:
 #    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
