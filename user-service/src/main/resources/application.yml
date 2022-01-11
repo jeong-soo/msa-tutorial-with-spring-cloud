@@ -18,9 +18,9 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: update
-    show-sql: true
+#      show-sql: true
+      format_sql: true
     generate-ddl: true
-
 eureka:
   instance:
 #    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
@@ -41,3 +41,8 @@ management:
 #        include: *
 greeting:
   message: Welcome to the UserService.
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
