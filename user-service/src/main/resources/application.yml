@@ -46,3 +46,8 @@ logging:
   level:
     org.hibernate.SQL: debug
     org.hibernate.type: trace
+    dev.jsoo.userservice: debug
+
+token:
+  expiration_time: 1800000
+  secret: dev.jsoo.user-token
