@@ -35,6 +35,10 @@ management:
     shutdown:
       enabled: true
       sensitive: false
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans
 #  endpoints:
 #    web:
 #      exposure:
@@ -48,6 +52,7 @@ logging:
     org.hibernate.type: trace
     dev.jsoo.userservice: debug
 
-token:
-  expiration_time: 1800000
-  secret: dev.jsoo.user-token
+
+#token:
+#  expiration_time: 1800000
+#  secret: dev.jsoo.user-token
